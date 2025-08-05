@@ -14,7 +14,7 @@ const CalendarPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
   const userEmail = localStorage.getItem('userEmail');
 
   useEffect(() => {
-    fetch('http://192.168.0.71:8001/calendar')
+    fetch('https://employee-calendar-backend.onrender.com/calendar')
       .then((res) => res.json())
       .then((data) => {
         console.log('Fetched Calendar Data:', data);

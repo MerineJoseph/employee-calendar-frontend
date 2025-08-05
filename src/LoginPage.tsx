@@ -10,7 +10,7 @@ const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     setError('');
 
     try {
-      const res = await fetch('http://192.168.0.71:8001/login', {
+      const res = await fetch('https://employee-calendar-backend.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

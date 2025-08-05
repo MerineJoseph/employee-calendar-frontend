@@ -10,7 +10,7 @@ const AdminPanel: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
     e.preventDefault();
     setMessage('');
 
-    const res = await fetch('http://192.168.0.71:8001/calendar', {
+    const res = await fetch('https://employee-calendar-backend.onrender.com/calendar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ date, status, time }),
@@ -28,7 +28,7 @@ const AdminPanel: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
   };
 
   const handleRemove = async () => {
-    const res = await fetch(`http://192.168.0.71:8001/calendar/${date}`, {
+    const res = await fetch(`https://employee-calendar-backend.onrender.com/calendar/${date}`, {
       method: 'DELETE',
     });
 
@@ -44,7 +44,7 @@ const AdminPanel: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
   };
 
   const loadPublicHolidays = async () => {
-    const res = await fetch('http://192.168.0.71:8001/calendar/public/auto', {
+    const res = await fetch('https://employee-calendar-backend.onrender.com/calendar/public/auto', {
       method: 'POST',
     });
     const data = await res.json();
@@ -118,7 +118,7 @@ const AdminPanel: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
         />
         <button className="adm-rem-phday"
           onClick={async () => {
-            const res = await fetch(`http://192.168.0.71:8001/calendar/public/${date}`, {
+            const res = await fetch(`https://employee-calendar-backend.onrender.com/calendar/public/${date}`, {
               method: 'DELETE',
             });
             const data = await res.json();
