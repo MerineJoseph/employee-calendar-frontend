@@ -1,38 +1,214 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
 .App {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3 {
+  text-align: center;
+  font-size: 1.8rem;
+}
+h1.emp-log-hdr {
+  margin-top: 5em;
+}
+h1 {
+  margin-bottom: 30px;
+  color: #257deb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Form Inputs */
+input, select, button {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  padding: 10px 20px;
+  background: #257deb;
   color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: #1d4ed8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button.emp-log-btn {
+    width: 25%;
+    position: absolute;
+    right: 1em;
+}
+button.back-to-cal, 
+button.adm-add-date, 
+button.adm-rem-date, 
+button.adm-add-phday, 
+button.adm-rem-phday {
+    width: 50%;
+    line-height: 1.4em;
+}
+.adm-edPanel input, .adm-edPanel select {
+    width: 50%;
+}
+.adm-edPanel h3 {
+        text-decoration: underline;
+}
+.adm-edPanel form, 
+.adm-edPanel .adm-rem-sec, 
+.adm-edPanel .adm-load-phday-sec, 
+.adm-edPanel .adm-rem-phday-sec {
+    border: 1px solid #1054a9;
+    padding: 5%;
+}
+/* Calendar Base Style */
+.react-calendar {
+  max-width: 100%;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.9rem;
+
+  border: 1px solid #ccc;
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Calendar Grid Cells */
+.react-calendar__tile {
+  position: relative;
+  padding: 10px;
+  height: 80px;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+  background: white;
+  transition: background 0.3s;
+}
+
+/* Top-right date text */
+.react-calendar__tile abbr {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-weight: 600;
+  font-size: 0.85em;
+  color: #444;
+  text-decoration: none;
+}
+/* Time Label & Holiday Name */
+.react-calendar__tile div {
+  position: absolute;
+  bottom: 4px;
+  left: 6px;
+  right: 6px;
+  font-size: 0.7em;
+  color: #555;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+
+/* Today’s Date */
+.react-calendar__tile.today {
+  background: #e0f7fa;
+  border: 1px solid #26c6da;
+  border-radius: 8px;
+}
+/* Working Day Highlight */
+.react-calendar__tile.working {
+  background: #e8f5e9;
+  border-left: 4px solid #43a047;
+}
+/* Holiday Highlight */
+.react-calendar__tile.holiday {
+  background: #ffebee;
+  border-left: 4px solid #e53935;
+}
+/* Public Holiday Highlight (Star + Label) */
+.react-calendar__tile.public-holiday {
+  background: #fff8e1;
+  border-left: 4px solid #fbc02d;
+  position: relative;
+}
+.react-calendar__tile.public-holiday::before {
+  content: "★";
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  color: #fbc02d;
+  font-size: 0.9em;
+}
+
+/* Hover Effect */
+.react-calendar__tile:hover {
+  background: #f5f5f5;
+  cursor: pointer;
+}
+.react-calendar__tile--now {
+  background: #e0f2fe !important;
+}
+.react-calendar__tile--active:enabled:hover abbr,
+.react-calendar__tile--active:enabled:hover div, 
+.react-calendar__tile--active:enabled:focus abbr,
+.react-calendar__tile--active:enabled:focus div{
+  color: #ffffff;
+}
+
+.react-calendar button {
+  color: #000;
+}
+
+.react-calendar__tile.holiday div {
+    color: red;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+  .App {
+    padding: 0.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1, h2, h3 {
+    font-size: 1.4rem;
+  }
+
+  .react-calendar__tile {
+    height: 60px;
+    padding: 0 !important;
+  }
+
+  .react-calendar__tile div {
+    width: 100%;
+    font-size: 0.66rem;
+    color: #05686d;
+  }
+
+  .react-calendar__tile abbr {
+    font-size: 0.7rem;
   }
 }
+
+
+
