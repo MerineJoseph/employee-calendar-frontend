@@ -1,4 +1,4 @@
-// serviceWorkerRegistration.ts
+// src/serviceWorkerRegistration.ts
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
