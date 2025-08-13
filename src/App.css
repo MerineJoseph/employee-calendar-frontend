@@ -304,3 +304,7 @@ button.adm-rem-phday {
   line-height:1.1;
 }
 
+.react-calendar, .react-calendar *, .react-calendar ::after, .react-calendar ::before {
+  text-decoration: none;
+}
+
