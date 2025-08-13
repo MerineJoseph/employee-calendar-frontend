@@ -1,5 +1,7 @@
 // public/service-worker.js
 
+console.log('SW running v9');
+
 // Basic skip-waiting handler so updates apply immediately
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
