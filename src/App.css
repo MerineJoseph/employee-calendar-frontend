@@ -308,3 +308,6 @@ button.adm-rem-phday {
   text-decoration: none;
 }
 
+span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .8rem;
+}
