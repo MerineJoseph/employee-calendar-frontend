@@ -1,28 +1,28 @@
-// public/service-worker.js
-
-console.log('SW running v9');
-
-// Basic skip-waiting handler so updates apply immediately
+// SW VERSION v10
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
 
+// Install: activate immediately
 self.addEventListener('install', (event) => {
-  // Precache if you want (optional)
   console.log('Service worker installed.');
   self.skipWaiting();
 });
 
+// Activate: claim all pages and clear old caches
 self.addEventListener('activate', (event) => {
-  // Take control of pages immediately
-  console.log('Service worker activated.');
-  event.waitUntil(self.clients.claim());
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => caches.delete(k))); // nuke old caches
+    await self.clients.claim();
+  })());
 });
 
-// Example fetch passthrough (customize with caching strategies if needed)
+// Network‑first for everything; fall back only if offline
 self.addEventListener('fetch', (event) => {
-  // Default: network first; you can add cache logic here
-  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request))
+  );
 });
