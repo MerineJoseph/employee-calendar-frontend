@@ -1,31 +1,35 @@
 // src/serviceWorkerRegistration.ts
-
-const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
-    window.location.hostname === '[::1]' ||
-    window.location.hostname.match(/^127(?:\.(?:\d{1,3})){3}$/)
-);
-
 type Config = {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
+const isLocalhost = Boolean(
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '[::1]' ||
+  /^127(?:\.(?:\d{1,3})){3}$/.test(window.location.hostname)
+);
+
 export function register(config?: Config) {
   if ('serviceWorker' in navigator) {
-    const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
     window.addEventListener('load', () => {
+      const swUrl = '/service-worker.js';
+
       if (isLocalhost) {
-        // For localhost testing
+        // On localhost, validate the SW file to avoid HTML/MIME issues
         checkValidServiceWorker(swUrl, config);
         navigator.serviceWorker.ready.then(() => {
-          console.log('This web app is being served cache-first by a service worker.');
+          console.log('Service worker ready (localhost).');
         });
       } else {
-        // Register service worker
+        // In production, just register and handle updates
         registerValidSW(swUrl, config);
       }
+
+      // Auto reload when a new SW becomes controller
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
     });
   }
 }
@@ -34,19 +38,27 @@ function registerValidSW(swUrl: string, config?: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      // If there is already a waiting worker at registration time, it means an update is ready
       if (registration.waiting) {
+        // Ask it to activate immediately
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
         config?.onUpdate?.(registration);
       }
 
       registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        if (installingWorker == null) return;
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === 'installed') {
+        const installing = registration.installing;
+        if (!installing) return;
+
+        installing.onstatechange = () => {
+          if (installing.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              console.log('New content is available; please refresh.');
+              // New content available
+              console.log('New content is available.');
+              // Tell the new SW to activate now
+              registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
               config?.onUpdate?.(registration);
             } else {
+              // First install
               console.log('Content is cached for offline use.');
               config?.onSuccess?.(registration);
             }
@@ -60,13 +72,12 @@ function registerValidSW(swUrl: string, config?: Config) {
 }
 
 function checkValidServiceWorker(swUrl: string, config?: Config) {
+  // Make sure we’re getting a JS SW, not an HTML fallback.
   fetch(swUrl, { headers: { 'Service-Worker': 'script' } })
     .then((response) => {
-      const contentType = response.headers.get('content-type');
-      if (
-        response.status === 404 ||
-        (contentType != null && contentType.indexOf('javascript') === -1)
-      ) {
+      const contentType = response.headers.get('content-type') || '';
+      if (response.status === 404 || !contentType.includes('javascript')) {
+        // No valid SW found. Unregister and reload.
         navigator.serviceWorker.ready.then((registration) => {
           registration.unregister().then(() => window.location.reload());
         });
@@ -83,8 +94,6 @@ export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration) => registration.unregister())
-      .catch((error) => {
-        console.error(error.message);
-      });
+      .catch((error) => console.error(error.message));
   }
 }
