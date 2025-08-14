@@ -119,6 +119,13 @@ button.adm-rem-phday {
   font-size: 0.85em;
   color: #444;
   text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #e3e0e0;
+  padding: 6px;
+  min-width: 28px;
+  text-align: center;
+  box-sizing: border-box;
 }
 /* Time Label & Holiday Name */
 .react-calendar__tile div {
@@ -226,9 +233,28 @@ button.adm-rem-phday {
   display:flex;
   gap:24px;
   align-items:flex-start;
+  border: 2px solid #939191;
+  padding: 2em;
+  border-radius: 5px;
 }
+
 @media (max-width:900px){
-  .two-col{flex-direction:column;}
+  .two-col {
+    flex-direction:column;
+  }
+  .react-calendar { 
+    padding:5%; 
+  }
+  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .62rem;
+  }
+  .react-calendar__navigation button {
+    border: 0;
+    padding: 0;
+  }
+  .react-calendar button {
+    border: 1px solid #969494;
+  }
 }
 
 .calendar-card{
@@ -308,6 +334,7 @@ button.adm-rem-phday {
   text-decoration: none;
 }
 
-span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
-    font-size: .8rem;
+.react-calendar__month-view__days__day:nth-child(7n+1) {
+  border-left: none !important;
+  padding-left: 4px; /* optional, to even spacing */
 }
