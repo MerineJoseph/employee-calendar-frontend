@@ -24,9 +24,7 @@ h1, h2, h3 {
   text-align: center;
   font-size: 1.8rem;
 }
-h1.emp-log-hdr {
-  margin-top: 5em;
-}
+
 h1 {
   margin-bottom: 30px;
   color: #257deb;
@@ -59,9 +57,21 @@ button:hover {
 }
 
 button.emp-log-btn {
-    width: 25%;
-    position: absolute;
-    right: 1em;
+  position: absolute;
+  left: 25%;
+  top: 30px;
+  display: inline-block;
+  font-family: Pacifico, cursive;
+  font-weight: 100;
+  font-size: 12px;
+  width: 35%;
+  border-radius: 50%;
+  border: 1px solid #e3e0e0;
+  padding: 7px;
+  min-width: 28px;
+  text-align: center;
+  box-sizing: border-box;
+  background: #423d3d;
 }
 button.back-to-cal, 
 button.adm-add-date, 
@@ -150,13 +160,20 @@ button.adm-rem-phday {
 }
 /* Working Day Highlight */
 .react-calendar__tile.working {
-  background: #e8f5e9;
-  border-left: 4px solid #43a047;
+  background: #ddeaf9;
+  border-left: 4px solid #0844af;
+}
+.react-calendar__tile.working abbr {
+    border: 1px solid #0844af;
+    color: #0844af;
 }
 /* Holiday Highlight */
 .react-calendar__tile.holiday {
-  background: #ffebee;
-  border-left: 4px solid #e53935;
+  background: #c2c7cb;
+  border-left: 4px solid #000000;
+}
+.react-calendar__tile.holiday abbr {
+    border: 1px solid #000000;
 }
 /* Public Holiday Highlight (Star + Label) */
 .react-calendar__tile.public-holiday {
@@ -185,15 +202,23 @@ button.adm-rem-phday {
 .react-calendar__tile--active:enabled:hover div, 
 .react-calendar__tile--active:enabled:focus abbr,
 .react-calendar__tile--active:enabled:focus div{
-  color: #ffffff;
+  color: #fff;
 }
-
+.react-calendar__tile--active:enabled:hover, 
+.react-calendar__tile--active:enabled:focus {
+  background: #0844af;
+  border-left: 4px solid #dceaf8;
+}
+.react-calendar__tile--active:enabled:hover abbr,
+.react-calendar__tile--active:enabled:focus abbr {
+  border: 1px solid #ffffff !important;
+}
 .react-calendar button {
   color: #000;
 }
 
 .react-calendar__tile.holiday div {
-    color: red;
+    color: #000000;
 }
 
 /* Responsive Breakpoints */
@@ -263,14 +288,25 @@ button.adm-rem-phday {
 }
 
 .sidebar{
-  width:320px;
-  min-width:280px;
-  border:2px solid var(--line);
-  border-radius:6px;
-  padding:16px;
-  background:#fff;
+  flex: 1 1;
+  width: 95%;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 15px;
+  background: #fff;
 }
-
+.sidebar textarea {
+  width: 95%;
+  max-width: 100%;
+  padding: 15px 5px;
+  border-radius: 6px;
+  overflow: scroll;
+  border: 1px solid rgb(204, 204, 204);
+  background: white;
+  font-size: 0.9rem;
+  font-family: system-ui, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .month-label{
   font-family:'Pacifico', cursive;
   font-size:40px;
@@ -337,4 +373,127 @@ button.adm-rem-phday {
 .react-calendar__month-view__days__day:nth-child(7n+1) {
   border-left: none !important;
   padding-left: 4px; /* optional, to even spacing */
+}
+
+.top-bar {
+  display: block;
+  width: 100%;
+  max-width: 250%;
+  height: 10vh;
+  margin: 0 0 50px 0;
+}
+.top-bar .top-bar-left,
+.top-bar .top-bar-right {
+  width: 25%;
+}
+.top-bar .top-bar-left {
+  float: left;
+}
+.top-bar .top-bar-right {
+  display: block;
+  position: relative;   
+  left: 0;
+  right: 0;
+  top: 0;
+  float: right;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.top-bar-left-main {
+  position: relative;
+  padding: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 23px;
+  font-weight: 100;
+  top: 0;
+  left: 0;
+}
+.top-bar .top-bar-right label {
+  position: relative;
+  display: block;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 12px;
+  padding: 5px;
+  margin-bottom: 6px;
+  font-family: 'Pacifico', cursive;
+  font-size: 17px;
+  font-weight: 100;
+  line-height: 20px;
+}
+.top-bar .top-bar-right select {
+  position: absolute;
+  display: block;
+  width: 64px;
+  padding: 1px;
+  left: 50px;
+  right: 0;
+  top: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 12px;
+  font-weight: 100;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+select option {
+    font-family: 'Pacifico', cursive;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+/* Trigger (closed state) */
+.cs-trigger{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #423d3d !important;
+  color: #fff;
+  border: 1px solid #cececf;
+  border-radius: 50%;
+  padding: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 12px;
+  font-weight: 100;
+  cursor: pointer;
+  margin: 10px 0 0;
+}
+
+/* List (open state) */
+.cs-list{
+  margin: 0;
+  list-style: none;
+  padding: 5px;
+  background: #423d3d;
+  border: 1px solid #cececf;
+  border-radius: 50%;
+  min-width: 50%;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Items */
+.cs-item{
+  background: #423d3d;
+  width: 50px;
+  font-family: 'Pacifico', cursive;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 0;
+  margin: 0 auto;
+  color: #fff;
+}
+ul.cs-list li:last-child {
+    border-top: 1px solid #9d9d9d;
+}
+.cs-item:hover {
+    font-size: 13px;
+    font-weight: bold;
+}
+/* Container */
+.custom-select{ 
+  width: 100%;
+  padding: 0 25%; 
 }

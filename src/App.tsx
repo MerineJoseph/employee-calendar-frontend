@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Calendar from 'react-calendar';
+import CustomSelect from './components/CustomSelect';
 import 'react-calendar/dist/Calendar.css';
 import './App.css';
 import LoginPage from './LoginPage';
 import AdminPanel from './AdminPanel';
 
 type MapStr = { [k: string]: string };
-type Station = 'StationA' | 'StationB';
+type Station = 'com' | 'mol';
 
 const API_BASE = 'https://employee-calendar-backend.onrender.com';
 
@@ -16,7 +17,7 @@ const CalendarPage: React.FC = () => {
   const [calendarData, setCalendarData] = useState<MapStr>({});
   const [publicHolidays, setPublicHolidays] = useState<MapStr>({});
   const [calendarTimes, setCalendarTimes] = useState<MapStr>({});
-  const [station, setStation] = useState<Station>('StationA');
+  const [station, setStation] = useState<Station>('com');
   const userEmail = localStorage.getItem('userEmail') || 'Employee';
 
   // notes key per station + month
@@ -65,8 +66,14 @@ const CalendarPage: React.FC = () => {
     );
   };
 
+  const [activeStartDate, setActiveStartDate] = useState<Date>(
+    new Date(new Date().getFullYear(), new Date().getMonth(), 1)
+  );
+  const [view, setView] = useState<'month' | 'year' | 'decade' | 'century'>('month');
+
+  // 2) build the label from activeStartDate (not from `value`)
   const monthLabel = new Intl.DateTimeFormat('en-AU', { month: 'long', year: 'numeric' })
-  .format(value);
+    .format(activeStartDate);
 
   return (
     <div className="App">
@@ -74,52 +81,58 @@ const CalendarPage: React.FC = () => {
         <div className="two-col">
           {/* LEFT: Calendar */}
           <div className="calendar-card">
+            <div className="top-bar">
+              <div className="top-bar-left" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                <div className="top-bar-left-main">{userEmail}
+                <button
+                  className="emp-log-btn"
+                  onClick={() => {
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userEmail');
+                    window.location.href = '/';
+                  }}
+                >
+                  Logout
+                </button>
+                </div>
+              </div>
+              <div className="top-bar-right">
+                <label >Work Station</label>
+                <CustomSelect
+                  value={station}
+                  onChange={(v) => setStation(v as 'com'|'mol')}
+                  options={[
+                    { label: 'COM', value: 'com' },
+                    { label: 'MOL', value: 'mol' },
+                  ]}
+                />
+              </div>
+            </div>
             <div className="month-label">Month: {monthLabel}</div>
             <Calendar
-              onChange={(date) => setValue(date as Date)}
+              onChange={(date) => {
+                const d = date as Date;
+                setValue(d);
+                // keep header in sync with the clicked day
+                setActiveStartDate(new Date(d.getFullYear(), d.getMonth(), 1));
+              }}
               value={value}
               tileClassName={tileClassName}
               tileContent={tileContent}
               calendarType="iso8601"
               locale="en-AU"
+              activeStartDate={activeStartDate}
+              onActiveStartDateChange={({ activeStartDate, view }) => {
+                if (activeStartDate) setActiveStartDate(activeStartDate);
+                if (view) setView(view);
+              }}
             />
           </div>
 
           {/* RIGHT: Sidebar */}
           <aside className="sidebar">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-              {userEmail && (
-                <div style={{ marginBottom: '20px', fontWeight: 'bold', fontSize: '18px' }}>
-                  Logged in as: {userEmail}
-                </div>
-              )}
-              <div style={{ fontWeight: 700 }}>{userEmail}</div>
-              <button
-                className="emp-log-btn"
-                onClick={() => {
-                  localStorage.removeItem('isLoggedIn');
-                  localStorage.removeItem('userEmail');
-                  window.location.href = '/';
-                }}
-              >
-                Logout
-              </button>
-            </div>
-
-            <h1 className="emp-log-hdr">Employee Calendar</h1>
-
-            <label style={{ fontWeight: 600, display: 'block', marginBottom: 6 }}>Work station</label>
-            <select
-              value={station}
-              onChange={(e) => setStation(e.target.value as Station)}
-              style={{ width: '100%', padding: 8, borderRadius: 6, marginBottom: 16 }}
-            >
-              <option value="StationA">Station A</option>
-              <option value="StationB">Station B</option>
-            </select>
-
             <label style={{ fontWeight: 600, display: 'block', marginBottom: 6 }}>
-              Notes for {monthLabel} ({station})
+              Notes 
             </label>
             <textarea
               value={notes}
@@ -129,7 +142,6 @@ const CalendarPage: React.FC = () => {
               }}
               placeholder="Write a reminder…"
               rows={8}
-              style={{ width: '100%', padding: 10, borderRadius: 6, border: '1px solid #ccc' }}
             />
           </aside>
         </div>
