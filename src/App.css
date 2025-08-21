@@ -282,6 +282,56 @@ button.adm-rem-phday {
   }
 }
 
+@media (min-width: 430px) and (max-width: 932px) {
+  .App {
+      padding: 0;
+  }
+  .app-shell {
+    display: block;
+    position: fixed;
+    margin: 5px;
+    width: 100vw;
+    height: 100vh;
+    max-width: 400px;
+    padding: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border: 5px solid #000;
+    overflow: scroll;
+  }
+  .two-col {
+    flex-direction:column;
+  }
+  .top-bar .top-bar-left, .top-bar .top-bar-right {
+    width: 45%;
+  }
+  .top-bar .top-bar-right label {
+    top: 13px;
+  }
+  .cs-trigger {
+    margin: 17px 0 0;
+    font-weight: 100;
+    min-width: 28px;
+    padding: 10px;
+    width: 45%;
+  }
+  .react-calendar { 
+    padding:5%; 
+  }
+  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .62rem;
+  }
+  .react-calendar__navigation button {
+    border: 0;
+    padding: 0;
+  }
+  .react-calendar button {
+    border: 1px solid #969494;
+  }
+}
+
 .calendar-card{
   flex:1;
   background:#fff;
