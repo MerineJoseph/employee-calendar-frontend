@@ -281,8 +281,42 @@ button.adm-rem-phday {
     border: 1px solid #969494;
   }
 }
-
-@media (min-width: 430px) and (max-width: 932px) {
+/* Portrait */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    /* iPhone 14 portrait styles here */
+}
+/* Landscape */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    /* iPhone 14 landscape styles here */
+}
+@media only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+    /* iPhone 14 Pro styles */
+}
+/* Landscape */
+@media only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    /* iPhone 14 Pro landscape styles here */
+}
+@media only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) { /* iPhone 14 Pro Max styles */
   .App {
       padding: 0;
   }
@@ -331,7 +365,13 @@ button.adm-rem-phday {
     border: 1px solid #969494;
   }
 }
-
+@media only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    /* iPhone 14 Pro Max landscape styles here */
+}
 .calendar-card{
   flex:1;
   background:#fff;
