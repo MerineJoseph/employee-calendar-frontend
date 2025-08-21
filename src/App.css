@@ -324,8 +324,6 @@ button.adm-rem-phday {
     display: block;
     position: fixed;
     margin: 5px;
-    width: 100vw;
-    height: 100vh;
     max-width: 400px;
     padding: 0;
     right: 0;
