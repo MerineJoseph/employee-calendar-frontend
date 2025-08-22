@@ -82,8 +82,9 @@ const CalendarPage: React.FC = () => {
           {/* LEFT: Calendar */}
           <div className="calendar-card">
             <div className="top-bar">
-              <div className="top-bar-left" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                <div className="top-bar-left-main">{userEmail}
+              <div className="top-bar-left">
+                <label>{userEmail}</label>
+                <div className="custom-select" style={{position: 'relative'}}>
                 <button
                   className="emp-log-btn"
                   onClick={() => {
@@ -102,8 +103,8 @@ const CalendarPage: React.FC = () => {
                   value={station}
                   onChange={(v) => setStation(v as 'com'|'mol')}
                   options={[
-                    { label: 'COM', value: 'com' },
-                    { label: 'MOL', value: 'mol' },
+                    { label: 'Com', value: 'com' },
+                    { label: 'Mol', value: 'mol' },
                   ]}
                 />
               </div>
