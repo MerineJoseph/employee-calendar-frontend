@@ -56,23 +56,6 @@ button:hover {
   background: #1d4ed8;
 }
 
-button.emp-log-btn {
-  position: absolute;
-  left: 25%;
-  top: 30px;
-  display: inline-block;
-  font-family: Pacifico, cursive;
-  font-weight: 100;
-  font-size: 12px;
-  width: 35%;
-  border-radius: 50%;
-  border: 1px solid #e3e0e0;
-  padding: 7px;
-  min-width: 28px;
-  text-align: center;
-  box-sizing: border-box;
-  background: #423d3d;
-}
 button.back-to-cal, 
 button.adm-add-date, 
 button.adm-rem-date, 
@@ -335,12 +318,7 @@ button.adm-rem-phday {
   .two-col {
     flex-direction:column;
   }
-  .top-bar .top-bar-left, .top-bar .top-bar-right {
-    width: 45%;
-  }
-  .top-bar .top-bar-right label {
-    top: 13px;
-  }
+ 
   .cs-trigger {
     margin: 17px 0 0;
     font-weight: 100;
@@ -398,9 +376,15 @@ button.adm-rem-phday {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .month-label{
-  font-family:'Pacifico', cursive;
-  font-size:40px;
-  margin:8px 0 12px;
+  font-family: Pacifico,cursive;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 3em;
+  display: block;
+  height: 10vh;
+  margin: 0 auto;
+  max-width: 85%;
+  padding: 25px;
 }
 
 /* react-calendar look & feel */
@@ -470,48 +454,59 @@ button.adm-rem-phday {
   width: 100%;
   max-width: 250%;
   height: 10vh;
-  margin: 0 0 50px 0;
+  margin: 25px 0 0 0;
 }
 .top-bar .top-bar-left,
 .top-bar .top-bar-right {
-  width: 25%;
+  display: block;
+  position: relative;
+  align-items: center;
+  margin-bottom: 12px;  
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .top-bar .top-bar-left {
   float: left;
+  border-right: 1px solid #000;
 }
 .top-bar .top-bar-right {
-  display: block;
-  position: relative;   
-  left: 0;
-  right: 0;
-  top: 0;
   float: right;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+  border-left: 1px solid #000;
 }
-.top-bar-left-main {
-  position: relative;
-  padding: 5px;
-  font-family: 'Pacifico', cursive;
-  font-size: 23px;
-  font-weight: 100;
-  top: 0;
-  left: 0;
-}
+.top-bar .top-bar-left label, 
 .top-bar .top-bar-right label {
-  position: relative;
-  display: block;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 12px;
   padding: 5px;
-  margin-bottom: 6px;
   font-family: 'Pacifico', cursive;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 100;
   line-height: 20px;
+}
+.top-bar .custom-select {
+  display: flex;
+  padding: 0 !important;
+  justify-content: space-around;
+}
+.top-bar .top-bar-left button, 
+.top-bar .top-bar-right button{
+  position: relative;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: Pacifico, cursive;
+  font-weight: 100;
+  font-size: 20px;
+  border: 1px solid #cececf;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px 0 0;
+  cursor: pointer;
+  background: #423d3d !important;
+  color: #fff;
+  align-items: baseline;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .top-bar .top-bar-right select {
   position: absolute;
