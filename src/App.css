@@ -609,12 +609,11 @@ ul.cs-list li:last-child {
     border: 1px solid #969494;
   }
 }
-@media only screen 
-  and (device-width: 430px) 
-  and (device-height: 932px) 
-  and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: landscape) {
-      .App {
+@media screen 
+and (max-width: 430px) 
+and (max-height: 932px) 
+and (orientation: landscape) {
+  .App {
       padding: 0;
   }
   .app-shell {
