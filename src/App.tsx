@@ -97,6 +97,7 @@ const CalendarPage: React.FC = () => {
                 </button>
                 </div>
               </div>
+              <div className="tapered-border"></div>
               <div className="top-bar-right">
                 <label >Work Station</label>
                 <CustomSelect
