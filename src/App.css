@@ -208,31 +208,6 @@ button.adm-rem-phday {
     color: #000000;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 600px) {
-  .App {
-    padding: 0.5rem;
-  }
-
-  h1, h2, h3 {
-    font-size: 1.4rem;
-  }
-
-  .react-calendar__tile {
-    height: 60px;
-    padding: 0 !important;
-  }
-
-  .react-calendar__tile div {
-    width: 100%;
-    font-size: 0.66rem;
-  }
-
-  .react-calendar__tile abbr {
-    font-size: 0.7rem;
-  }
-}
-
 /*-------- Two side -------*/
 .app-shell{
   max-width:1200px;
@@ -248,117 +223,6 @@ button.adm-rem-phday {
   padding: 0;
   border-radius: 5px;
 }
-
-@media (max-width:900px){
-  .two-col {
-    flex-direction:column;
-  }
-  .react-calendar { 
-    padding:5%; 
-  }
-  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
-    font-size: .62rem;
-  }
-  .react-calendar__navigation button {
-    border: 0;
-    padding: 0;
-  }
-  .react-calendar button {
-    border: 1px solid #969494;
-  }
-}
-/* Portrait */
-@media only screen 
-  and (device-width: 390px) 
-  and (device-height: 844px) 
-  and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: portrait) {
-    /* iPhone 14 portrait styles here */
-}
-/* Landscape */
-@media only screen 
-  and (device-width: 390px) 
-  and (device-height: 844px) 
-  and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: landscape) {
-    /* iPhone 14 landscape styles here */
-}
-@media only screen 
-  and (device-width: 393px) 
-  and (device-height: 852px) 
-  and (-webkit-device-pixel-ratio: 3)
-  and (orientation: portrait) {
-    /* iPhone 14 Pro styles */
-}
-/* Landscape */
-@media only screen 
-  and (device-width: 393px) 
-  and (device-height: 852px) 
-  and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: landscape) {
-    /* iPhone 14 Pro landscape styles here */
-}
-@media screen 
-  and (max-width: 430px) 
-  and (max-height: 932px) 
-  and (orientation: portrait) { /* iPhone 14 Pro Max styles */
-  .App {
-      padding: 0;
-  }
-  .app-shell {
-    display: block;
-    position: fixed;
-    margin: 5px;
-    max-width: 400px;
-    padding: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    border: 5px solid #000;
-    overflow: scroll;
-  }
-  .two-col {
-    flex-direction:column;
-  }
-  .top-bar .top-bar-left label, 
-  .top-bar .top-bar-right label,
-  .top-bar .top-bar-left button, 
-  .top-bar .top-bar-right button {
-    font-size: 17px !important;
-  }
-  .cs-trigger {
-    margin: 17px 0 0;
-    font-weight: 100;
-    min-width: 28px;
-    padding: 10px;
-    width: 45%;
-  }
-  .react-calendar { 
-    padding:2%; 
-    min-width: 350px;
-  }
-  .react-calendar__tile {
-    height: 75px !important; 
-  }
-  .react-calendar__tile abbr {
-    min-width: 24px;
-  }
-  .react-calendar__tile div {
-    left: 4px;
-  }
-  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
-    font-size: .62rem;
-  }
-  .react-calendar__navigation button {
-    border: 0;
-    padding: 0;
-  }
-  .react-calendar button {
-    border: 1px solid #969494;
-  }
-}
-
 .tapered-border-ver {
   display: inline-flex;
   height: 95px;
@@ -374,13 +238,6 @@ button.adm-rem-phday {
   border-radius: 50% 50%;
 }
 
-@media only screen 
-  and (device-width: 430px) 
-  and (device-height: 932px) 
-  and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: landscape) {
-    /* iPhone 14 Pro Max landscape styles here */
-}
 .calendar-card{
   flex:1;
   display: block;
@@ -615,3 +472,203 @@ ul.cs-list li:last-child {
   width: 100%;
   padding: 0 25%; 
 }
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+  .App {
+    padding: 0.5rem;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.4rem;
+  }
+
+  .react-calendar__tile {
+    height: 60px;
+    padding: 0 !important;
+  }
+
+  .react-calendar__tile div {
+    width: 100%;
+    font-size: 0.66rem;
+  }
+
+  .react-calendar__tile abbr {
+    font-size: 0.7rem;
+  }
+}
+
+
+@media (max-width:900px){
+  .two-col {
+    flex-direction:column;
+  }
+  .react-calendar { 
+    padding:5%; 
+  }
+  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .62rem;
+  }
+  .react-calendar__navigation button {
+    border: 0;
+    padding: 0;
+  }
+  .react-calendar button {
+    border: 1px solid #969494;
+  }
+}
+/* Portrait */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    /* iPhone 14 portrait styles here */
+}
+/* Landscape */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    /* iPhone 14 landscape styles here */
+}
+@media only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+    /* iPhone 14 Pro styles */
+}
+/* Landscape */
+@media only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    /* iPhone 14 Pro landscape styles here */
+}
+@media screen 
+  and (max-width: 430px) 
+  and (max-height: 932px) 
+  and (orientation: portrait) { /* iPhone 14 Pro Max styles */
+  .App {
+      padding: 0;
+  }
+  .app-shell {
+    display: block;
+    position: fixed;
+    margin: 5px;
+    max-width: 400px;
+    padding: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border: 5px solid #000;
+    overflow: scroll;
+  }
+  .two-col {
+    flex-direction:column;
+  }
+  .top-bar .top-bar-left label, 
+  .top-bar .top-bar-right label,
+  .top-bar .top-bar-left button, 
+  .top-bar .top-bar-right button {
+    font-size: 17px !important;
+  }
+  .cs-trigger {
+    margin: 17px 0 0;
+    font-weight: 100;
+    min-width: 28px;
+    padding: 10px;
+    width: 45%;
+  }
+  .react-calendar { 
+    padding:2%; 
+    min-width: 350px;
+  }
+  .react-calendar__tile {
+    height: 75px !important; 
+  }
+  .react-calendar__tile abbr {
+    min-width: 24px;
+    padding: 2px;
+  }
+  .react-calendar__tile div {
+    left: 4px;
+  }
+  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .62rem;
+  }
+  .react-calendar__navigation button {
+    border: 0;
+    padding: 0;
+  }
+  .react-calendar button {
+    border: 1px solid #969494;
+  }
+}
+@media only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+      .App {
+      padding: 0;
+  }
+  .app-shell {
+    display: block;
+    position: fixed;
+    margin: 5px;
+    max-width: 400px;
+    padding: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border: 5px solid #000;
+    overflow: scroll;
+  }
+  .two-col {
+    flex-direction:column;
+  }
+  .top-bar .top-bar-left label, 
+  .top-bar .top-bar-right label,
+  .top-bar .top-bar-left button, 
+  .top-bar .top-bar-right button {
+    font-size: 17px !important;
+  }
+  .cs-trigger {
+    margin: 17px 0 0;
+    font-weight: 100;
+    min-width: 28px;
+    padding: 10px;
+    width: 45%;
+  }
+  .react-calendar { 
+    padding:2%; 
+    min-width: 350px;
+  }
+  .react-calendar__tile {
+    height: 75px !important; 
+  }
+  .react-calendar__tile abbr {
+    min-width: 24px;
+    padding: 2px;
+  }
+  .react-calendar__tile div {
+    left: 4px;
+  }
+  span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+    font-size: .62rem;
+  }
+  .react-calendar__navigation button {
+    border: 0;
+    padding: 0;
+  }
+  .react-calendar button {
+    border: 1px solid #969494;
+  }
+}
+
