@@ -349,13 +349,13 @@ button.adm-rem-phday {
 .tapered-border-ver {
   display: inline-flex;
   height: 95px;
-  width: 2px;
-  background: linear-gradient(to right, #f6f0f000, rgba(245, 241, 241, 0.19) 11.76%, #e1dbdb6b, rgba(173, 173, 169, 0.65) 36.97%, #000, rgba(60, 60, 59, 0.7333333333333333) 61.76%, #d5d2d26b, rgba(242, 239, 239, 0.22) 87.39%, #0000);
+  width: 1px;
+  background: linear-gradient(25deg, rgba(0, 0, 0, 0.42) 10.5%, rgba(0, 0, 0, 0.63) 41.6%, rgba(0, 0, 0, 0.59) 55.46%, rgba(7, 6, 6, 0.13) 88.24%);
   border-radius: 50% 50%;
 }
 .tapered-border-hor {
   display: inline-flex;
-  width: 95px;
+  width: 30vh;
   height: .5px;
   background: linear-gradient(to right, transparent, grey, black, grey, transparent);
   border-radius: 50% 50%;
@@ -480,6 +480,7 @@ button.adm-rem-phday {
 .top-bar .top-bar-left,
 .top-bar .top-bar-right {
   display: block;
+  width: 45%;
   position: relative;
   align-items: center;
   margin-bottom: 12px;  
