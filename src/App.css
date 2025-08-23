@@ -577,6 +577,9 @@ ul.cs-list li:last-child {
   .top-bar .top-bar-right button {
     font-size: 17px !important;
   }
+  .month-label {
+    font-size: 27px;
+  }
   .cs-trigger {
     margin: 17px 0 0;
     font-weight: 100;
