@@ -127,7 +127,7 @@ button.adm-rem-phday {
   left: 6px;
   right: 6px;
   font-size: 0.7em;
-  color: #555;
+  color: #0844af;
   line-height: 1.2;
   margin-top: 1.5em;
   text-align: left;
@@ -145,6 +145,10 @@ button.adm-rem-phday {
 .react-calendar__tile.working {
   background: #ddeaf9;
   border-left: 4px solid #0844af;
+}
+.react-calendar__tile.working div,
+.react-calendar__tile.working abbr {
+  font-weight: 900;
 }
 .react-calendar__tile.working abbr {
     border: 1px solid #0844af;
@@ -222,7 +226,6 @@ button.adm-rem-phday {
   .react-calendar__tile div {
     width: 100%;
     font-size: 0.66rem;
-    color: #05686d;
   }
 
   .react-calendar__tile abbr {
@@ -332,7 +335,17 @@ button.adm-rem-phday {
     width: 45%;
   }
   .react-calendar { 
-    padding:5%; 
+    padding:2%; 
+    min-width: 350px;
+  }
+  .react-calendar__tile {
+    height: 75px !important; 
+  }
+  .react-calendar__tile abbr {
+    min-width: 24px;
+  }
+  .react-calendar__tile div {
+    left: 4px;
   }
   span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
     font-size: .62rem;
@@ -405,7 +418,7 @@ button.adm-rem-phday {
   height: 10vh;
   margin: 0 auto;
   max-width: 85%;
-  padding: 25px;
+  padding: 0 25px 15px 25px;
 }
 
 /* react-calendar look & feel */
