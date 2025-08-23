@@ -348,16 +348,15 @@ button.adm-rem-phday {
 
 .tapered-border-ver {
   display: inline-flex;
-  height: 70px;
-  padding: 1px;
-  background: linear-gradient(to right, transparent, #8080806b, black, #8080806b, transparent);
+  height: 95px;
+  width: 2px;
+  background: linear-gradient(to right, #f6f0f000, rgba(245, 241, 241, 0.19) 11.76%, #e1dbdb6b, rgba(173, 173, 169, 0.65) 36.97%, #000, rgba(60, 60, 59, 0.7333333333333333) 61.76%, #d5d2d26b, rgba(242, 239, 239, 0.22) 87.39%, #0000);
   border-radius: 50% 50%;
 }
 .tapered-border-hor {
   display: inline-flex;
-  width: 30vh;
+  width: 95px;
   height: .5px;
-  padding: 1px;
   background: linear-gradient(to right, transparent, grey, black, grey, transparent);
   border-radius: 50% 50%;
 }
