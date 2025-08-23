@@ -350,7 +350,7 @@ button.adm-rem-phday {
   display: inline-flex;
   height: 70px;
   padding: 1px;
-  background: linear-gradient(to right, transparent, grey, black, grey, transparent);
+  background: linear-gradient(to right, transparent, #8080806b, black, #8080806b, transparent);
   border-radius: 50% 50%;
 }
 .tapered-border-hor {
