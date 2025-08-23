@@ -346,9 +346,17 @@ button.adm-rem-phday {
   }
 }
 
-.tapered-border {
+.tapered-border-ver {
   display: inline-flex;
   height: 70px;
+  padding: 1px;
+  background: linear-gradient(to right, transparent, grey, black, grey, transparent);
+  border-radius: 50% 50%;
+}
+.tapered-border-hor {
+  display: inline-flex;
+  width: 30vh;
+  height: .5px;
   padding: 1px;
   background: linear-gradient(to right, transparent, grey, black, grey, transparent);
   border-radius: 50% 50%;

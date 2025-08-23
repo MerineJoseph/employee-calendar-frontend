@@ -97,7 +97,7 @@ const CalendarPage: React.FC = () => {
                 </button>
                 </div>
               </div>
-              <div className="tapered-border"></div>
+              <div className="tapered-border-ver"></div>
               <div className="top-bar-right">
                 <label >Work Station</label>
                 <CustomSelect
@@ -110,6 +110,7 @@ const CalendarPage: React.FC = () => {
                 />
               </div>
             </div>
+            <div className="tapered-border-hor"></div>
             <div className="month-label">Month: {monthLabel}</div>
             <Calendar
               onChange={(date) => {
