@@ -620,7 +620,7 @@ and (orientation: landscape) {
     display: block;
     position: fixed;
     margin: 5px;
-    max-width: 400px;
+    max-width: 1800px;
     padding: 0;
     right: 0;
     left: 0;
@@ -629,14 +629,25 @@ and (orientation: landscape) {
     border: 5px solid #000;
     overflow: scroll;
   }
+  .tapered-border-hor {
+    height: 1px;
+    width: 100vh;
+  }
   .two-col {
     flex-direction:column;
+  }
+  .calendar-card {
+    padding: 0 5% 0;
   }
   .top-bar .top-bar-left label, 
   .top-bar .top-bar-right label,
   .top-bar .top-bar-left button, 
   .top-bar .top-bar-right button {
     font-size: 17px !important;
+  }
+  .top-bar .top-bar-left button, 
+  .top-bar .top-bar-right button {
+    width: 35%;
   }
   .cs-trigger {
     margin: 17px 0 0;
@@ -649,8 +660,11 @@ and (orientation: landscape) {
     padding:2%; 
     min-width: 350px;
   }
+  .month-label {
+    padding: 2% 5% 7%;
+  }
   .react-calendar__tile {
-    height: 75px !important; 
+    height: 100px !important; 
   }
   .react-calendar__tile abbr {
     min-width: 24px;
@@ -658,6 +672,7 @@ and (orientation: landscape) {
   }
   .react-calendar__tile div {
     left: 4px;
+    font-size: 1.2em;
   }
   span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
     font-size: .62rem;
@@ -668,6 +683,9 @@ and (orientation: landscape) {
   }
   .react-calendar button {
     border: 1px solid #969494;
+  }
+  .sidebar textarea {
+    max-width: 80%;
   }
 }
 
