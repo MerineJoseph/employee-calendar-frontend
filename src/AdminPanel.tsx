@@ -253,6 +253,28 @@ const AdminPanel: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
         </button>
       </div>
 
+      {/* Danger zone: reset */}
+      {/* Inside AdminPanel, maybe under a "Danger Zone" section */}
+      <button
+        style={{ marginTop: 16, color: '#b00020' }}
+        onClick={async () => {
+          if (!window.confirm('Are you sure? This will wipe ALL data for this station.')) return;
+          try {
+            const res = await fetch(
+              `${API_BASE}/admin/reset?station=${toApiStation(stationUI)}&secret=admReset`,
+              { method: 'POST' }
+            );
+            const data = await res.json();
+            setMessage(data.message || 'Done');
+            onSuccess();
+          } catch (e) {
+            setMessage('❌ Reset failed');
+          }
+        }}
+      >
+        🔥 Reset this station (wipe all data)
+      </button>
+
       {message && <p style={{ marginTop: 12 }}>{message}</p>}
     </div>
   );
